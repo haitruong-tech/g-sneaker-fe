@@ -2,7 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+body {
+  @apply w-screen h-screen overflow-hidden font-rubik;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 105vh;
+  top: 30%;
+  right: 0;
+  background-image: radial-gradient(
+    ellipse at 400%,
+    theme("colors.Yellow") 0%,
+    theme("colors.Yellow") 74.99%,
+    theme("colors.White") 75%
+  );
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.card {
+  @apply w-[360px] rounded-[28px] shadow-lg h-[600px] mt-6 max-lg:mx-auto mb-10 bg-white relative overflow-hidden py-[12px] px-[28px];
+}
+
+.card-circle {
+  @apply w-[240px] h-[240px] bg-[theme('colors.Yellow')] block rounded-full absolute -top-12 -left-24;
+}
+
+.card-item:not(:first-child) {
+  @apply mt-20;
+}
+
+.heading {
+  @apply text-2xl font-bold mt-4;
+}
+
+.add-to-cart-btn {
+  @apply text-lg font-bold uppercase bg-[theme('colors.Yellow')] rounded-full py-3 px-5;
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +73,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
