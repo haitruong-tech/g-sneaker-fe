@@ -13,7 +13,7 @@ const CardItem = (product: Shoes) => {
 
   useEffect(() => {
     const listen = (e?: Event) => {
-      if (e && "detail" in e && product.id === e.detail)
+      if (product.id === (e as CustomEvent)?.detail)
         setIsAddedToCart(false);
       else {
         const isAddedToCart = (
