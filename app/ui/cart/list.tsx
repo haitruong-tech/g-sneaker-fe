@@ -21,11 +21,13 @@ const CartItem = memo(
     const [animateOut, setAnimateOut] = useState(false);
 
     const decreaseHandler = (remove?: boolean) => {
-      if (item.quantity <= 1 || remove) setAnimateOut(true);
-      setTimeout(() => {
-        setAnimateOut(false);
-        decreaseQuantity(remove);
-      }, 750);
+      if (item.quantity <= 1 || remove) {
+        setAnimateOut(true);
+        setTimeout(() => {
+          setAnimateOut(false);
+          decreaseQuantity(remove);
+        }, 750);
+      } else decreaseQuantity();
     };
 
     return (
