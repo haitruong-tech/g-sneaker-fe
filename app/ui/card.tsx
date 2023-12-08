@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Price from "./cart/price";
+import Price from "@/app/ui/cart/price";
 
 const Card = ({
   heading,

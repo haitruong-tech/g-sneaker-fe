@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Cart, Shoes } from "../../lib/definitions";
-import { useAddToCart, useCardsAtoms } from "../../lib/atom";
+import { Cart, Shoes } from "@/app/lib/definitions";
+import { useAddToCart } from "@/app/lib/atom";
 import { useEffect, useState } from "react";
 
 const CardItem = (product: Shoes) => {

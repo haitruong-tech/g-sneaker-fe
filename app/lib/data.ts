@@ -1,4 +1,4 @@
-import { Shoes } from "./definitions";
+import { Shoes } from "@/app/lib/definitions";
 
 const baseURL = process.env.BASE_URL;
 

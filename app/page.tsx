@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import Card from "./ui/card";
-import CardProducts from "./ui/product/list";
-import CartItems from "./ui/cart/list";
+import Card from "@/app/ui/card"
+import CardProducts from "@/app/ui/product/list";
+import CartItems from "@/app/ui/cart/list";
 
 export default function Home() {
   return (

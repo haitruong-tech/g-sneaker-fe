@@ -1,6 +1,6 @@
 import React from "react";
-import { fetchProducts } from "../../lib/data";
-import CardItem from "./item";
+import { fetchProducts } from "@/app/lib/data";
+import CardItem from "@/app/ui/product/item";
 
 const CardProducts = async () => {
   const products = await fetchProducts();

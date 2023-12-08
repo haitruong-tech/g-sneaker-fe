@@ -1,7 +1,7 @@
 "use client";
 
 import { splitAtom } from "jotai/utils";
-import { Cart, Shoes } from "./definitions";
+import { Cart, Shoes } from "@/app/lib/definitions";
 import { atom, useAtom } from "jotai";
 
 // Store cart product's content

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { rubik } from "./ui/fonts";
-import "./globals.css";
+import { rubik } from "@/app/ui/fonts";
+import "@/app/globals.css"
 import Image from "next/image";
 
 export const metadata: Metadata = {
