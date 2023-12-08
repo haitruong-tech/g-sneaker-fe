@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Price from "./cart/price";
 
 const Card = ({
   heading,
@@ -22,7 +23,7 @@ const Card = ({
         />
         <div className="flex justify-between">
           <h1 className="heading">{heading}</h1>
-          {type === "cart" && <p className="heading">$458.94</p>}
+          {type === "cart" && <Price />}
         </div>
         {children}
       </div>

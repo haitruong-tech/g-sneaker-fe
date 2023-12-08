@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { rubik } from "./ui/fonts";
 import "./globals.css";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "G-Sneaker",
@@ -15,7 +16,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${rubik.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Image
+          src="/assets/background.png"
+          width={1800}
+          height={1200}
+          alt=""
+          className="fixed bottom-0 left-0 h-[50%] origin-left animate-background"
+        />
+      </body>
     </html>
   );
 }
