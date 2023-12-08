@@ -10,7 +10,9 @@ npm install
 yarn
 ```
 
-Second, run the development server:
+Second, copy `.env.example` to `.env` (if you modify the BE port please also change the port on `.env`)
+
+Third, run the development server:
 
 ```bash
 npm run dev
