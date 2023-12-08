@@ -24,4 +24,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy on Vercel
 
-The project is deployed on Vercel, here is the link: [g-sneaker-fe-haitruong.vercel.app](g-sneaker-fe-haitruong.vercel.app)
+The project is deployed on Vercel, here is the link: [https://g-sneaker-fe-haitruong.vercel.app/](https://g-sneaker-fe-haitruong.vercel.app/)

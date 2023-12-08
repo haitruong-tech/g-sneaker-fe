@@ -20,8 +20,8 @@ const CartItem = memo(
     const baseDelay = (index ?? 0) * 1750;
     const [animateOut, setAnimateOut] = useState(false);
 
-    const decreaseHandler = (id: number, remove?: boolean) => {
-      setAnimateOut(true);
+    const decreaseHandler = (remove?: boolean) => {
+      if (item.quantity <= 1 || remove) setAnimateOut(true);
       setTimeout(() => {
         setAnimateOut(false);
         decreaseQuantity(remove);
@@ -69,7 +69,7 @@ const CartItem = memo(
             <div className="flex gap-x-3 items-center">
               <div
                 className="bg-[#e9e9e9] rounded-full w-[28px] h-[28px] items-center justify-center flex cursor-pointer"
-                onClick={(e) => decreaseHandler(item.id)}
+                onClick={(e) => decreaseHandler()}
               >
                 <Image
                   src="/assets/minus.png"
@@ -88,7 +88,7 @@ const CartItem = memo(
             </div>
             <div
               className="bg-Yellow rounded-full w-[28px] h-[28px] items-center justify-center flex cursor-pointer"
-              onClick={(e) => decreaseHandler(item.id, true)}
+              onClick={(e) => decreaseHandler(true)}
             >
               <Image
                 src="/assets/trash.png"
