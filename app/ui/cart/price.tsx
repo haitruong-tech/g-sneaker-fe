@@ -1,11 +1,18 @@
 "use client";
 
-import { usePriceAtom } from "@/app/lib/atom";
+import { useCartPrice } from "@/app/lib/atom";
 import React from "react";
 
 const Price = () => {
-  const price = usePriceAtom();
-  return <p className="heading">${price}</p>;
+  const price = useCartPrice();
+  return (
+    <p
+      className="heading animate-fade-in-left"
+      style={{ animationDelay: "750ms" }}
+    >
+      ${price}
+    </p>
+  );
 };
 
 export default Price;

@@ -1,42 +1,26 @@
-"use client";
-
 import Image from "next/image";
-import { Cart, Shoes } from "@/app/lib/definitions";
-import { useAddToCart } from "@/app/lib/atom";
-import { useEffect, useState } from "react";
+import { Shoes } from "@/app/lib/definitions";
+import AddToCartButton from "./add-to-cart-btn";
 
-const CardItem = (product: Shoes) => {
+const CardItem = ({
+  product,
+  priority,
+}: {
+  product: Shoes;
+  priority: boolean;
+}) => {
   const { color, description, image, name, price } = product;
 
-  const addToCart = useAddToCart(product);
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
-
-  useEffect(() => {
-    const listen = (e?: Event) => {
-      if (product.id === (e as CustomEvent)?.detail)
-        setIsAddedToCart(false);
-      else {
-        const isAddedToCart = (
-          JSON.parse(localStorage.getItem("cart") ?? "[]") as Cart
-        ).find((item) => item.id === product.id);
-        setIsAddedToCart(Boolean(isAddedToCart));
-      }
-    };
-
-    listen();
-
-    window.addEventListener("onremovecartitem", listen);
-  }, []);
-
   return (
-    <div className="[&:not(:first-child)]:mt-20">
+    <article className="[&:not(:first-child)]:mt-20">
       <div className="rounded-[28px] py-8" style={{ backgroundColor: color }}>
         <Image
-          src={image}
+          src={image ?? ""}
           width={499}
           height={499}
-          alt={name}
+          alt={name ?? ""}
           className="-rotate-[24deg] -translate-x-4"
+          priority={priority}
         />
       </div>
       <div className="mt-5">
@@ -44,30 +28,10 @@ const CardItem = (product: Shoes) => {
         <p className="mt-4 text-sm leading-6 opacity-60">{description}</p>
         <div className="mt-6 flex justify-between items-center h-[52px]">
           <p className="text-lg font-bold">${price}</p>
-          {!isAddedToCart ? (
-            <p
-              className="add-to-cart-btn"
-              onClick={() => {
-                addToCart();
-                setIsAddedToCart(true);
-              }}
-            >
-              Add To Cart
-            </p>
-          ) : (
-            <div className="bg-Yellow rounded-full p-3">
-              <Image
-                src="/assets/check.png"
-                width={24}
-                height={24}
-                alt="check"
-                className="animate-fade-in"
-              />
-            </div>
-          )}
+          <AddToCartButton product={product} />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -12,13 +12,14 @@ const Card = ({
   type: "products" | "cart";
 }) => {
   return (
-    <div className="card">
-      <div className="relative z-10 h-full flex flex-col">
+    <section className="card">
+      <div className="card-circle"></div>
+      <div className="relative h-full flex flex-col">
         <Image
           src="/assets/nike.png"
           width={248}
           height={129}
-          className="w-16"
+          className="w-16 shrink-0"
           alt="Nike Logo"
         />
         <div className="flex justify-between">
@@ -27,8 +28,7 @@ const Card = ({
         </div>
         {children}
       </div>
-      <div className="card-circle"></div>
-    </div>
+    </section>
   );
 };
 
