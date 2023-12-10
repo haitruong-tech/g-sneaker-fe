@@ -9,8 +9,10 @@ const Price = () => {
     <p
       className="heading animate-fade-in-left"
       style={{ animationDelay: "750ms" }}
+      aria-live="polite"
+      aria-label="Cart Total Price"
     >
-      ${price}
+      {`$${price}`}
     </p>
   );
 };

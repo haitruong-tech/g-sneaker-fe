@@ -30,9 +30,10 @@ The project is deployed on Vercel, here is the link: [https://g-sneaker-fe-haitr
 
 ## Edit after deadline (16:00 Friday 08 December, 2023)
 
-After deadline:
-- I've refactored the code to fix some "Lighthouse issues".
-- Optimize images' size.
-- Fix Jotai multiple instances warning.
-- Fix `"Uncaught Error: Hydration failed because the initial UI does not match what was rendered on the server."`
-- Add semantic elements
+After deadline, I've:
+- Refactored the code to fix some "Lighthouse issues".
+- Optimized images' size.
+- Fixed Jotai multiple instances warning.
+- Fixed `"Uncaught Error: Hydration failed because the initial UI does not match what was rendered on the server."`
+- Added semantic elements
+- Added aria attributes for accessibility

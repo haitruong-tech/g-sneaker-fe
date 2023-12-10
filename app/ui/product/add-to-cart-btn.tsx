@@ -19,12 +19,15 @@ const AddToCartButton = ({ product }: { product: Shoes }) => {
   if (!domLoaded) return <div>Loading DOM...</div>;
 
   return !isAddedToCart ? (
-    // TODO: save to localStorage
-    <p className="add-to-cart-btn" onClick={() => increaseOrAddToCart(product)}>
+    <button
+      className="add-to-cart-btn"
+      onClick={() => increaseOrAddToCart(product)}
+      aria-label="Add to Cart"
+    >
       Add To Cart
-    </p>
+    </button>
   ) : (
-    <div className="bg-Yellow rounded-full p-3">
+    <div className="bg-Yellow rounded-full p-3" aria-label="You added this product to cart">
       <Image
         src="/assets/check.png"
         width={24}

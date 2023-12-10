@@ -23,10 +23,8 @@ const CartItem = memo(({ id }: { id: number }) => {
       setAnimateOut(true);
       setTimeout(() => {
         setAnimateOut(false);
-        // TODO: save to localStorage
         decreaseCartItem({ product: item, remove });
       }, 750);
-      // TODO: save to localStorage
     } else decreaseCartItem({ product: item });
   };
 
@@ -35,6 +33,7 @@ const CartItem = memo(({ id }: { id: number }) => {
       className={clsx("flex mt-10 gap-x-8 items-start", {
         "animate-zoom-out": animateOut,
       })}
+      id="cart-item"
     >
       <div
         className="rounded-full shrink-0 h-[90px] w-[90px] animate-zoom-in"
@@ -60,34 +59,47 @@ const CartItem = memo(({ id }: { id: number }) => {
         <p
           className="text-lg font-bold mt-2 animate-fade-in-left"
           style={{ animationDelay: "1000ms" }}
+          aria-label="Product Price"
         >
-          ${item.price}
+          {`$${item.price}`}
         </p>
         <div
           className="flex items-center justify-between mt-2 animate-fade-in"
           style={{ animationDelay: "1250ms" }}
         >
           <div className="flex gap-x-3 items-center">
-            <div
+            <button
               className="bg-[#e9e9e9] rounded-full w-[28px] h-[28px] items-center justify-center flex cursor-pointer"
-              onClick={(e) => decreaseHandler()}
+              onClick={() => decreaseHandler()}
+              aria-label="Subtract from Quantity"
+              aria-controls="quantity"
             >
               <Image src="/assets/minus.png" alt="minus" width={8} height={8} />
-            </div>
-            <span>{item.quantity}</span>
-            <div
+            </button>
+            <span
+              aria-live="polite"
+              id="quantity"
+              aria-label="Quantity"
+            >
+              {item.quantity}
+            </span>
+            <button
               className="bg-[#e9e9e9] rounded-full w-[28px] h-[28px] items-center justify-center flex cursor-pointer"
-              onClick={() => increaseCartItem(item)} // TODO: save to localStorage
+              onClick={() => increaseCartItem(item)}
+              aria-label="Add to Quantity"
+              aria-controls="quantity"
             >
               <Image src="/assets/plus.png" alt="plus" width={8} height={8} />
-            </div>
+            </button>
           </div>
-          <div
+          <button
             className="bg-Yellow rounded-full w-[28px] h-[28px] items-center justify-center flex cursor-pointer"
-            onClick={(e) => decreaseHandler(true)}
+            onClick={() => decreaseHandler(true)}
+            aria-label="Remove Cart Item"
+            aria-controls="cart-item"
           >
             <Image src="/assets/trash.png" alt="trash" width={14} height={14} />
-          </div>
+          </button>
         </div>
       </div>
     </article>

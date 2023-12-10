@@ -21,13 +21,16 @@ const CardItem = ({
           alt={name ?? ""}
           className="-rotate-[24deg] -translate-x-4"
           priority={priority}
+          aria-labelledby="product-title"
         />
       </div>
       <div className="mt-5">
-        <h2 className="text-lg font-bold">{name}</h2>
-        <p className="mt-4 text-sm leading-6 opacity-60">{description}</p>
+        <h2 className="text-lg font-bold" id="product-title">
+          {name}
+        </h2>
+        <p className="mt-4 text-sm leading-6 opacity-60" aria-label="Description">{description}</p>
         <div className="mt-6 flex justify-between items-center h-[52px]">
-          <p className="text-lg font-bold">${price}</p>
+          <p className="text-lg font-bold" aria-label="Product price">{`$${price}`}</p>
           <AddToCartButton product={product} />
         </div>
       </div>
